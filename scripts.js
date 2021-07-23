@@ -10,7 +10,8 @@ function init()
      const button1 = document.getElementById("landing");
      const button2 = document.getElementById("missionAbort");
      const button3 = document.getElementsByTagName("button");
-     const image = document.getElementById("rocket")
+     const image = document.getElementById("rocket");
+     height.textContent=0;
 
 
      button.addEventListener('click',event => {
@@ -19,7 +20,7 @@ function init()
         {
             p.textContent= "Shuttle in flight."
             background.style="background-color:blue";
-            height.textContent = "1000"
+            height.textContent = "10000"
         }
     }); 
    button1.addEventListener('click', function(event) {
@@ -27,7 +28,7 @@ function init()
     
         p.textContent = "The shuttle has landed."
         background.style="background-color:green";
-        height.textContent = "0"
+          height.textContent = "0"
     
 
    });
@@ -37,28 +38,30 @@ function init()
     {
         p.textContent = "Mission Aborted"
         background.style="background-color:green";
-        height.textContent = "0"
+        height.textContent = 0
     }
 });
    
 button3[0].addEventListener('click',event => {
-    image.height = image.height+10;
-    height.textContent = height.textContent +10000
+    
+    image.style.top = `${image.offsetTop - 10}px`;
+     height.textContent = parseInt(height.textContent) +10000
 });
 button3[1].addEventListener('click',event => {
-    image.height = image.height-10;
-    height.textContent = height.textContent -10000
+    image.style.top = `${image.offsetTop + 10}px`;
+         height.textContent = parseInt(height.textContent) -10000;
 });
 
 button3[2].addEventListener('click',event => {
-    image.width = image.width+10;
-    height.textContent = height.textContent +10000
+    image.style.right= `${image.offsetLeft - 10}px`;
+        height.textContent = parseInt(height.textContent )+10000
 
 });
 
     button3[3].addEventListener('click',event => {
-        image.width = image.width-10;
-        height.textContent = height.textContent -10000
+        
+        image.style.right = `${image.offsetLeft + 10}px`;
+        height.textContent = parseInt(height.textContent)-10000
     
     });
 
